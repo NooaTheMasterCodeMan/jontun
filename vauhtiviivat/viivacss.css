@@ -1,0 +1,24 @@
+#ball {
+    position: absolute;
+
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+    background-color: blue;
+}
+
+#balli {
+    position: absolute;
+
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+    background-color: blue;
+}
+
+#jei {
+    border: black 1px solid;
+    size: 50px;
+}

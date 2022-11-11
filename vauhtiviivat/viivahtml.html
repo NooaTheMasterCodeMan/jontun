@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/vue@2.4.3/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pallo</title>
+    <link rel="stylesheet" href="viivacss.css">
+</head>
+<body>
+
+    <div id="ball" v-bind:style="{top: topi + 'px', left: lefty + 'px'}"></div>
+    <div id="balli" v-bind:style="{top: topi + 'px', right: righty + 'px'}"></div>
+
+    	<script language="javascript">
+            var left = new Vue({
+                el: '#ball',
+                data: {
+                    topi: 700,
+                    lefty: 1200,
+                    righty: 1200,
+                    arvo: 10,
+                    arvot: 0,
+                    kikkels: 1,
+                },
+                methods: {
+                moveBall: function () 
+                {
+                    if (this.kikkels <= 2 && this.kikkels >= 1) {
+                        this.lefty += this.arvo * 2;
+                        this.topi += this.arvot;
+                    }
+
+                    if (this.kikkels <= 3 && this.kikkels >= 2) {
+                        this.lefty += this.arvot * 2;
+                        this.topi += this.arvo;
+                    }
+
+                    if (this.kikkels <= 4 && this.kikkels >= 3) {
+                        this.lefty -= this.arvo * 2;
+                        this.topi -= this.arvot;
+                    }
+
+                    if (this.kikkels <= 5 && this.kikkels >= 4) {
+                        this.lefty += this.arvot * 2;
+                        this.topi -= this.arvo;
+                    }
+                },
+
+                burger: function () 
+                {
+                    this.kikkels += 0.1;
+
+                    if (this.kikkels >= 4.9) {
+                        this.kikkels = 1;
+                    }
+                },
+                },  
+
+                mounted: function()
+                {
+                setInterval(this.moveBall, 10);
+
+                setInterval(this.burger, 10);
+                }
+            })
+
+            var right = new Vue({
+                el: '#balli',
+                data: {
+                    topi: 700,
+                    righty: 1200,
+                    arvo: 10,
+                    arvot: 0,
+                    kikkels: 1,
+                },
+                methods: {
+                moveBall: function () 
+                {
+                    if (this.kikkels <= 2 && this.kikkels >= 1) {
+                        this.righty -= this.arvo * 2;
+                        this.topi -= this.arvot;
+                    }
+
+                    if (this.kikkels <= 3 && this.kikkels >= 2) {
+                        this.righty -= this.arvot * 2;
+                        this.topi -= this.arvo;
+                    }
+
+                    if (this.kikkels <= 4 && this.kikkels >= 3) {
+                        this.righty += this.arvo * 2;
+                        this.topi += this.arvot;
+                    }
+
+                    if (this.kikkels <= 5 && this.kikkels >= 4) {
+                        this.righty -= this.arvot * 2;
+                        this.topi += this.arvo;
+                    }
+                },
+
+                burger: function () 
+                {
+                    this.kikkels += 0.1;
+
+                    if (this.kikkels >= 4.9) {
+                        this.kikkels = 1;
+                    }
+                },
+                },  
+
+                mounted: function()
+                {
+                setInterval(this.moveBall, 10);
+
+                setInterval(this.burger, 10);
+                }
+            })
+        </script>
+</body>
+</html>
